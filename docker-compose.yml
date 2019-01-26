@@ -1,7 +1,6 @@
 version: '3.7'
 
 services: 
-
   react-app:
     container_name: app-react
     build:
@@ -14,3 +13,16 @@ services:
       - '3000:3000'
     environment:
       - NODE_ENV=development
+  node-app:
+    container_name: app-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - './server:/usr/src/server'
+      - '/usr/src/server/node_modules'
+    ports:
+      - '3030:3030'
+    environment:
+        - NODE_ENV=development
+  

@@ -9,5 +9,3 @@ COPY package.json /usr/src/app/package.json
 RUN npm install
 
 CMD npm start
-
-
